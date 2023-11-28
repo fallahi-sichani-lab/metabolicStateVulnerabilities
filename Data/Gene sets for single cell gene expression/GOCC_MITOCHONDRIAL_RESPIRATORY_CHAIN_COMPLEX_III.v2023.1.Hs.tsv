@@ -1,0 +1,19 @@
+STANDARD_NAME	GOCC_MITOCHONDRIAL_RESPIRATORY_CHAIN_COMPLEX_III
+SYSTEMATIC_NAME	M45302
+COLLECTION	C5:GO:CC
+MSIGDB_URL	https://www.gsea-msigdb.org/gsea/msigdb/human/geneset/GOCC_MITOCHONDRIAL_RESPIRATORY_CHAIN_COMPLEX_III
+NAMESPACE	Human_NCBI_Gene_ID
+DESCRIPTION_BRIEF	A protein complex located in the mitochondrial inner membrane that forms part of the mitochondrial respiratory chain. Contains about 10 polypeptide subunits including four redox centers: cytochrome b/b6, cytochrome c1 and an 2Fe-2S cluster. Catalyzes the oxidation of ubiquinol by oxidized cytochrome c1. [GOC:mtg_sensu, ISBN:0198547684]
+DESCRIPTION_FULL	
+PMID	
+GEOID	
+AUTHORS	
+CONTRIBUTOR	Gene Ontology
+CONTRIBUTOR_ORG	Gene Ontology Consortium
+EXACT_SOURCE	GO:0005750
+FILTERED_BY_SIMILARITY	GO:0045275
+EXTERNAL_NAMES_FOR_SIMILAR_TERMS	respiratory chain complex III
+EXTERNAL_DETAILS_URL	http://amigo.geneontology.org/amigo/term/GO:0005750
+SOURCE_MEMBERS	100128525,10975,1537,27089,29796,440567,4512,4519,617,7381,7384,7385,7386,7388
+GENE_SYMBOLS	UQCRFS1P1,UQCR11,CYC1,UQCRQ,UQCR10,UQCRHL,MT-CO1,MT-CYB,BCS1L,UQCRB,UQCRC1,UQCRC2,UQCRFS1,UQCRH
+FOUNDER_NAMES	

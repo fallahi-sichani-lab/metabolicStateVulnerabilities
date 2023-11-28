@@ -1,0 +1,19 @@
+STANDARD_NAME	GOCC_PROTON_TRANSPORTING_ATP_SYNTHASE_COMPLEX
+SYSTEMATIC_NAME	M17808
+COLLECTION	C5:GO:CC
+MSIGDB_URL	https://www.gsea-msigdb.org/gsea/msigdb/human/geneset/GOCC_PROTON_TRANSPORTING_ATP_SYNTHASE_COMPLEX
+NAMESPACE	Human_NCBI_Gene_ID
+DESCRIPTION_BRIEF	A proton-transporting two-sector ATPase complex that catalyzes the phosphorylation of ADP to ATP during oxidative phosphorylation. The complex comprises a membrane sector (F0) that carries out proton transport and a cytoplasmic compartment sector (F1) that catalyzes ATP synthesis by a rotational mechanism; the extramembrane sector (containing 3 a and 3 b subunits) is connected via the d-subunit to the membrane sector by several smaller subunits. Within this complex, the g and e subunits and the 9-12 c subunits rotate by consecutive 120 degree angles and perform parts of ATP synthesis. This movement is driven by the hydrogen ion electrochemical potential gradient. [ISBN:0198547684, ISBN:0716743663]
+DESCRIPTION_FULL	
+PMID	
+GEOID	
+AUTHORS	
+CONTRIBUTOR	Gene Ontology
+CONTRIBUTOR_ORG	Gene Ontology Consortium
+EXACT_SOURCE	GO:0045259
+FILTERED_BY_SIMILARITY	GO:0005753
+EXTERNAL_NAMES_FOR_SIMILAR_TERMS	mitochondrial proton-transporting ATP synthase complex
+EXTERNAL_DETAILS_URL	http://amigo.geneontology.org/amigo/term/GO:0045259
+SOURCE_MEMBERS	10476,10632,267020,27109,432369,4508,4509,498,506,509,513,514,515,516,517,518,521,522,539,84833,9551,9556
+GENE_SYMBOLS	ATP5PD,ATP5MG,ATP5MGL,DMAC2L,ATP5F1EP2,MT-ATP6,MT-ATP8,ATP5F1A,ATP5F1B,ATP5F1C,ATP5F1D,ATP5F1E,ATP5PB,ATP5MC1,ATP5MC2,ATP5MC3,ATP5ME,ATP5PF,ATP5PO,ATP5MK,ATP5MF,ATP5MJ
+FOUNDER_NAMES	

@@ -1,0 +1,19 @@
+STANDARD_NAME	RESPIRATORY_CHAIN_COMPLEX_I
+SYSTEMATIC_NAME	M13440
+COLLECTION	ARCHIVED:C5_GO:CC
+MSIGDB_URL	https://www.gsea-msigdb.org/gsea/msigdb/human/geneset/RESPIRATORY_CHAIN_COMPLEX_I
+NAMESPACE	HUMAN_GENE_SYMBOL
+DESCRIPTION_BRIEF	Genes annotated by the GO term GO:0045271. Respiratory chain complex I is an enzyme of the respiratory chain. It consists of at least 34 polypeptide chains and is L-shaped, with a horizontal arm lying in the membrane and a vertical arm that projects into the matrix. The electrons of NADH enter the chain at this complex.
+DESCRIPTION_FULL	
+PMID	
+GEOID	
+AUTHORS	
+CONTRIBUTOR	Gene Ontology
+CONTRIBUTOR_ORG	Gene Ontology Consortium
+EXACT_SOURCE	GO:0045271
+FILTERED_BY_SIMILARITY	
+EXTERNAL_NAMES_FOR_SIMILAR_TERMS	
+EXTERNAL_DETAILS_URL	http://amigo.geneontology.org/amigo/term/GO:0045271
+SOURCE_MEMBERS	ND1,NDUFA1,NDUFA13,NDUFA2,NDUFA6,NDUFA9,NDUFAB1,NDUFB6,NDUFS1,NDUFS2,NDUFS3,NDUFS4,NDUFS7,NDUFS8,NDUFV1
+GENE_SYMBOLS	MT-ND1,NDUFA1,NDUFA13,NDUFA2,NDUFA6,NDUFA9,NDUFAB1,NDUFB6,NDUFS1,NDUFS2,NDUFS3,NDUFS4,NDUFS7,NDUFS8,NDUFV1
+FOUNDER_NAMES	
