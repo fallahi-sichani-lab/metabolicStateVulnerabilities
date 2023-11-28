@@ -1,0 +1,88 @@
+---
+title: "metabolic signature analysis"
+output: html_document
+---
+```{r Uploading Data, warning=F, message=F}
+#clearing environment before next step in analysis
+rm(list=ls()) #clear all
+cat("\014") #clc
+
+#loading organized CCLE gene expression data 
+
+load('/Volumes/FallahiLab/Maize-Data/Data/Cara/CCLE data/CCLE_TPM_data_organized.RData')
+```
+
+
+```{r, warning=F, message=F}
+library(dplyr)
+
+#removing non-cancerous cell lines from dataset
+non_cancerous_cell_lines <- CCLE_annotation[CCLE_annotation$OncotreePrimaryDisease == "Non-Cancerous",]$StrippedCellLineName
+CCLE_cell_line_tumor_type <- CCLE_cell_line_tumor_type[,!colnames(CCLE_cell_line_tumor_type) %in% non_cancerous_cell_lines]
+
+#melanoma CCLE cohort filtering
+CCLE_cell_line_tumor_type <- as.data.frame(t(CCLE_cell_line_tumor_type))
+CCLE_cell_line_tumor_type <- CCLE_cell_line_tumor_type[!(CCLE_cell_line_tumor_type$OncotreePrimaryDisease == ""),] #filter any cell lines that do not have assigned subtype
+
+cancer_type_count <- as.data.frame(table(CCLE_cell_line_tumor_type$OncotreePrimaryDisease)) #determine number of cell lines associated with certain cancer, original 96 different cancer types
+cancer_type_count <- cancer_type_count[cancer_type_count$Freq >= 5,] #removing cancer types that have < 5 cell lines sequenced 
+
+
+
+#filtering cancer cell lines that have more than or equal to 5
+bind_list <- list()
+for (i in 1:length(cancer_type_count$Var1)) {
+  bind_list[[i]] <- CCLE_cell_line_tumor_type[CCLE_cell_line_tumor_type$OncotreePrimaryDisease == cancer_type_count$Var1[i],]
+}
+
+CCLE_cell_line_tumor_type <- as.data.frame(data.table::rbindlist(bind_list))
+rownames(CCLE_cell_line_tumor_type) <- unlist(rbind(lapply(bind_list, rownames)))
+
+#generating unique cancer type list
+tumor_type_list <- unique(CCLE_cell_line_tumor_type$OncotreePrimaryDisease)
+
+#creating TPM dataframe to be used for z-scoring
+CCLE_TPM <- CCLE_cell_line_tumor_type[,-c(1)]
+CCLE_TPM <- as.data.frame(sapply(CCLE_TPM, as.numeric))
+rownames(CCLE_TPM) <- rownames(CCLE_cell_line_tumor_type)
+```
+
+
+```{r}
+#pie chart of cancer cell line splits
+library(ggplot2)
+library(ggrepel)
+library(randomcoloR)
+
+set.seed(30)
+n <- length(unique(cancer_type_count$Var1))
+palette_final <- distinctColorPalette(n)
+
+# Get the positions
+df2 <- cancer_type_count%>% 
+  mutate(csum = rev(cumsum(rev(Freq))), 
+         pos = Freq/2 + lead(csum, 1),
+         pos = if_else(is.na(pos), Freq/2, pos))
+
+p <- ggplot(cancer_type_count, aes(x = "" , y = Freq, fill = Var1)) +
+  geom_col(width = 1, color = 1) +
+  coord_polar(theta = "y") +
+  scale_fill_manual(values = palette_final)+
+  geom_label_repel(data = df2, aes(y = pos, label = paste0(Freq)), size = 4.5, nudge_x = 1, show.legend = FALSE) +
+  guides(fill = guide_legend(title = "Cancer Type")) + theme_void()
+
+ggsave('/Volumes/FallahiLab/Maize-Data/Data/Cara/CCLE data/CCLE metabolic signature analysis/CCLE_pie_chart.pdf',plot = p,device = 'pdf',width = 25, height = 15,dpi=300)
+
+```
+
+
+
+```{r, warning=F, message=F}
+CCLE_TPM_zscore <- scale(CCLE_TPM) #zscoring every gene across all cell lines
+```
+
+```{r saving CCLE zscore dataframe, warning=F, message=F}
+#saving CCLE zscore dataframes for future analysis
+save(CCLE_TPM_zscore,CCLE_TPM, tumor_type_list, CCLE_cell_line_tumor_type, medium_metadata_unfiltered, CCLE_annotation, palette_final, file = "/Volumes/FallahiLab/Maize-Data/Data/Cara/CCLE data/CCLE metabolic signature analysis/CCLE_z_score_data.RData")
+```
+
