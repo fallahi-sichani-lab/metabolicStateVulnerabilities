@@ -1,0 +1,16 @@
+CELLTYPE,PATHWAY,NES,PVAL,ADJPVAL
+Non-SmallCell Lung Cancer,Oxidative phosphorylation,3.39724115910186,0.0001999600079984,1.8417243581164
+EsophagogastricAdenocarcinoma,Oxidative phosphorylation,2.21907022890041,0.0001999600079984,2.14275435378038
+Melanoma,Oxidative phosphorylation,2.36055395837414,0.0001999600079984,1.8417243581164
+RenalCell Carcinoma,Oxidative phosphorylation,2.37883062120558,0.0001999600079984,1.8417243581164
+Headand Neck Squamous Cell Carcinoma,Oxidative phosphorylation,2.87171190973074,0.0001999600079984,1.8417243581164
+OvarianEpithelial Tumor,Oxidative phosphorylation,2.32552069485939,0.0001999600079984,2.14275435378038
+Non-HodgkinLymphoma,Oxidative phosphorylation,2.61605543037389,0.0001999600079984,1.8417243581164
+PancreaticAdenocarcinoma,Oxidative phosphorylation,2.58521290448651,0.0001999600079984,1.8417243581164
+InvasiveBreast Carcinoma,Oxidative phosphorylation,2.78593483292992,0.0001999600079984,1.8417243581164
+ColorectalAdenocarcinoma,Oxidative phosphorylation,2.17113803786273,0.000399920015996801,1.66563309906072
+Osteosarcoma,Oxidative phosphorylation,1.82633143588111,0.000599880023995201,1.36460310339674
+LungNeuroendocrine Tumor,Oxidative phosphorylation,3.44556197220053,0.0001999600079984,2.14275435378038
+EsophagealSquamous Cell Carcinoma,Oxidative phosphorylation,2.08339242923348,0.000399920015996801,1.54069436245242
+BreastDuctal Carcinoma In Situ,Oxidative phosphorylation,1.92616831118673,0.0001999600079984,1.8417243581164
+HepatocellularCarcinoma,Oxidative phosphorylation,1.91678146677873,0.000599880023995201,1.66563309906072
