@@ -17,6 +17,8 @@ library(matrixStats)
 library(gridExtra)
 library(randomcoloR)
 library(fgsea)
+library(dplyr)
+library(tidyr)
 
 #functions required for pathway activity analysis
 #calculate how many pathways of one gene involved function (developed by Xiao et al)
@@ -176,9 +178,22 @@ mybreaks <- c(
 
 color <- colorRampPalette(c("blue","white","red"))(67)
 
+#adding * to marker significant cancer types/pathways in heatmap
+test_labels <- matrix(as.numeric(unlist(pvalues_mat)),nrow=nrow(pvalues_mat)); test_labels <- -log10(test_labels)
+test_labels[test_labels < -log10(0.05)] <- ""
+test_labels[test_labels >= -log10(0.05)] <- "*"
+colnames(test_labels) <- colnames(pvalues_mat); rownames(test_labels) <- rownames(pvalues_mat)
+test_labels <- test_labels[complete.cases(test_labels), ]
 
-p <- pheatmap(dat,cluster_cols = T,cluster_rows = T,color=color,breaks=mybreaks,vannotation_row = NA, annotation_colors = mat_colors)
-ggsave(file.path(outDir, "KEGGpathway_activity_heatmap.pdf"),p,width=16,height=15,units="in",device="pdf",useDingbats=FALSE)
+
+
+p <- pheatmap(dat,cluster_cols = T,cluster_rows = T,color=color,breaks=mybreaks,vannotation_row = NA, 
+              annotation_colors = mat_colors,display_numbers = test_labels, fontsize_number = 15, number_color = "black",
+              border_color = "black")
+
+ggsave(file.path(outDir, "KEGGpathway_activity_heatmap_with_significance.pdf"),p,width=16,height=15,units="in",device="pdf",useDingbats=FALSE)
+
+
 
 #exporting results from pathway activity calculations
 write.table(mean_expression_noshuffle,file=file.path(outDir,"KEGGpathway_activity_noshuffle.txt"),row.names=T,col.names=T,quote=F,sep="\t")
@@ -265,4 +280,72 @@ p<-ggplot(pathway_loading_score_condensed, aes(x=Loading, y=pathway)) +
 
 ggsave('/Volumes/FallahiLab/Maize-Data/Data/Cara/CCLE data/CCLE metabolic signature analysis/Pathway_activity/summed_PC1_PC8_variance.pdf',plot = p,width = 12,height=12,units="in",device="pdf",useDingbats=FALSE)
 
+#looking at aboslute value sum of loadings across 70, 80, and 90% variance explained
+pathway_loading_score.df <- data.frame()
+for (v in c(70,80,90)) {
+  select_pcs <- which(cum_var>=v)[1] #selecting loadings with % variance explained
+  loadings <- abs(PCA_pathway$rotation)
+  pathway_loading_score <- as.data.frame(sort(apply(abs(loadings[,1:select_pcs]), 1, sum)))
+  pathway_loading_score.df <- rbind(pathway_loading_score.df,data.frame(variance = paste0(v, "%"), 
+                                                                        summed_loadings = as.numeric(unlist(pathway_loading_score[1])),
+                                                                        pathways = rownames(pathway_loading_score), 
+                                                                        num_PCs = select_pcs))
+  
+}
 
+most_least_variable_pathways_80 <- pathway_loading_score.df[pathway_loading_score.df$variance == "80%",]
+
+most_least_variable_pathways_80 <- most_least_variable_pathways_80[order(most_least_variable_pathways_80$summed_loadings),]
+
+most_least_variable_pathways_80 <- most_least_variable_pathways_80[c(1:5, 69:73),]
+most_least_variable_pathways_80$color <- "red"
+
+pathway_loading_score.df <- merge(pathway_loading_score.df, most_least_variable_pathways_80[,c(3,5)], 
+                                  by.x = c("pathways"),
+                                  by.y = c("pathways"), all = TRUE)
+
+pathway_loading_score.df$color <- ifelse(is.na(pathway_loading_score.df$color), "black", "red")
+
+
+#barplot of top/bottom pathways for each threshold
+plot_list <- list()
+for (v in unique(pathway_loading_score.df$variance)) {
+  
+  df <- pathway_loading_score.df[pathway_loading_score.df$variance == v, ]
+  df <- df[order(df$summed_loadings, decreasing = FALSE),]; df <- df[c(1:5,69:73),]
+  df$color <- factor(df$color, levels =  c("red", "black"))
+  
+  plot_list[[v]] <- ggplot(df, aes(x= summed_loadings, y= reorder(pathways, summed_loadings), fill = color)) +  
+    geom_bar(stat="identity")+theme_classic() +  theme(legend.position="none",
+                                                       axis.text.x=element_text(colour="black", size = 10),
+                                                       axis.text.y=element_text(colour="black", size = 10),
+                                                       axis.line=element_line(size=0.2,color="black"),
+                                                       axis.ticks = element_line(colour = "black",size=0.2),
+                                                       panel.border = element_blank(), panel.background = element_blank(),
+                                                       axis.ticks.length= unit(.5, "mm"), axis.title = element_text(size = 12, colour = "black")) + 
+    ylab("") + xlab('Summed loadings') + xlim(0,3) + ggtitle(label = sprintf("Top/bottom variable pathways %s", v)) +
+    scale_fill_manual(values=c("red", "black"))
+  
+}
+
+g <- grid.arrange(grobs=plot_list,ncol=3)
+ggsave(file.path(outDir, 'summed_loadings_barplots_across_variance_thresholds.pdf'), plot = g,device = 'pdf',width =22, height = 5,dpi=300)
+
+
+
+#heatmap of summed loadings across PCA thresholds
+pathway_loading_score_wide.df <- pathway_loading_score.df %>%
+  pivot_wider(
+    names_from = variance,
+    id_cols = pathways,
+    values_from = summed_loadings)
+
+dat <- as.data.frame(pathway_loading_score_wide.df[,-c(1)])
+rownames(dat) <- pathway_loading_score_wide.df$pathways
+
+
+color <- colorRampPalette(c("white","blue"))(67)
+
+p <- pheatmap(dat,cluster_cols = T,cluster_rows = T,color=color,fontsize_col = 20)
+
+ggsave(file.path(outDir,"pathway_summed_loadings_across_variance_explained.pdf"),p,width = 9,height=15,units="in",device="pdf",useDingbats=FALSE)

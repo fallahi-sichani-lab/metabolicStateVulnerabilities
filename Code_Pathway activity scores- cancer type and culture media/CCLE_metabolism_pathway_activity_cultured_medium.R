@@ -16,6 +16,8 @@ library(RColorBrewer)
 library(matrixStats)
 library(gridExtra)
 library(randomcoloR)
+library(fgsea)
+
 
 #functions required for pathway activity analysis
 #calculate how many pathways of one gene involved function (developed by Xiao et al)
