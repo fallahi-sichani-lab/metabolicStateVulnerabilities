@@ -1,0 +1,40 @@
+"","total","expected","hits","Raw p","Holm p","FDR"
+"Citrate cycle (TCA cycle)",20,0.624,7,1.05e-06,8.38e-05,8.38e-05
+"Glyoxylate and dicarboxylate metabolism",31,0.967,7,2.74e-05,0.00216,0.00103
+"Arginine biosynthesis",14,0.437,5,3.88e-05,0.00302,0.00103
+"Glycine, serine and threonine metabolism",33,1.03,6,0.000391,0.0301,0.00783
+"Alanine, aspartate and glutamate metabolism",28,0.873,5,0.00137,0.104,0.0219
+"beta-Alanine metabolism",21,0.655,4,0.00338,0.253,0.045
+"Galactose metabolism",27,0.842,4,0.00863,0.638,0.0885
+"Glutathione metabolism",28,0.873,4,0.00984,0.718,0.0885
+"Butanoate metabolism",15,0.468,3,0.00996,0.718,0.0885
+"Histidine metabolism",16,0.499,3,0.012,0.851,0.0959
+"Purine metabolism",70,2.18,6,0.0192,1,0.14
+"Ascorbate and aldarate metabolism",9,0.281,2,0.0298,1,0.189
+"Pyrimidine metabolism",39,1.22,4,0.0307,1,0.189
+"Lysine degradation",30,0.936,3,0.0641,1,0.366
+"Nicotinate and nicotinamide metabolism",15,0.468,2,0.0773,1,0.412
+"Arginine and proline metabolism",36,1.12,3,0.0991,1,0.496
+"Pantothenate and CoA biosynthesis",20,0.624,2,0.127,1,0.597
+"Propanoate metabolism",21,0.655,2,0.138,1,0.611
+"Pyruvate metabolism",23,0.717,2,0.159,1,0.671
+"Nitrogen metabolism",6,0.187,1,0.173,1,0.694
+"Lipoic acid metabolism",28,0.873,2,0.216,1,0.816
+"Taurine and hypotaurine metabolism",8,0.25,1,0.224,1,0.816
+"Inositol phosphate metabolism",30,0.936,2,0.24,1,0.829
+"Vitamin B6 metabolism",9,0.281,1,0.249,1,0.829
+"Cysteine and methionine metabolism",33,1.03,2,0.275,1,0.88
+"Tryptophan metabolism",41,1.28,2,0.368,1,1
+"D-Amino acid metabolism",15,0.468,1,0.38,1,1
+"Glycerolipid metabolism",16,0.499,1,0.399,1,1
+"Primary bile acid biosynthesis",46,1.43,2,0.425,1,1
+"Starch and sucrose metabolism",18,0.561,1,0.436,1,1
+"Pentose and glucuronate interconversions",19,0.593,1,0.454,1,1
+"Fructose and mannose metabolism",20,0.624,1,0.472,1,1
+"Pentose phosphate pathway",23,0.717,1,0.52,1,1
+"Glycolysis / Gluconeogenesis",26,0.811,1,0.564,1,1
+"Porphyrin metabolism",31,0.967,1,0.629,1,1
+"Sphingolipid metabolism",32,0.998,1,0.641,1,1
+"Glycerophospholipid metabolism",36,1.12,1,0.685,1,1
+"Tyrosine metabolism",42,1.31,1,0.741,1,1
+"Amino sugar and nucleotide sugar metabolism",42,1.31,1,0.741,1,1

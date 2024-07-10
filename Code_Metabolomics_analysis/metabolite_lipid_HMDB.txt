@@ -1,0 +1,226 @@
+Input name	Standardized name	Formula	Exact mass	Super class	Main class	 Sub class	HMDB
+2-aminoadipate	alpha-Aminoadipic acid	161.0688	C6H11NO4	Organic acids	Amino acids and peptides	Amino acids	HMDB0000510
+3-phosphoglycerate	3-Phosphoglyceric acid	185.9929	C3H7O7P	Organic acids	Short-chain acids	Short-chain acids	HMDB0000807
+alpha-glycerophosphate	sn-Glycero-3-phosphate	172.0137	C3H9O6P	Organic acids	Organic phosphoric acids	Organic phosphoric acids	HMDB0000126
+4-pyridoxate	4-Pyridoxic acid	183.0532	C8H9NO4	Alkaloids	Nicotinic acid alkaloids	Pyridine alkaloids	HMDB0000017
+aconitate	trans-Aconitic acid	174.0164	C6H6O6	Organic acids	Carboxylic acids	Tricarboxylic acids	HMDB0000072
+adenine	Adenine	135.0545	C5H5N5	Nucleic acids	Purines	Aminopurines	HMDB0000034
+adipate	Adipic acid	146.0579	C6H10O4	Fatty Acyls	Fatty acids	Dicarboxylic acids	HMDB0000448
+alpha-ketoglutarate	2-Oxoglutaric acid	146.0215	C5H6O5	Organic acids	TCA acids	TCA acids	HMDB0000208
+AMP	AMP	347.0631	C10H14N5O7P	Nucleic acids	Purines	Purine rNMP	HMDB0000045
+citrate	Citric acid	192.027	C6H8O7	Organic acids	TCA acids	TCA acids	HMDB0000094
+isocitrate	Isocitric acid	192.027	C6H8O7	Organic acids	TCA acids	TCA acids	HMDB0000193
+CMP	CMP	323.0519	C9H14N3O8P	Nucleic acids	Pyrimidines	Pyrimidine rNMP	HMDB0000095
+cystathionine	Cystathionine	222.0674	C7H14N2O4S	Organic acids	Amino acids and peptides	Amino acids	HMDB0000099
+cytidine	Cytidine	243.0855	C9H13N3O5	Nucleic acids	Pyrimidines	Pyrimidine ribonucleosides	HMDB0000089
+dCMP	dCMP	307.0569	C9H14N3O7P	Nucleic acids	Pyrimidines	Pyrimidine dNMP	HMDB0001202
+DHAP	Dihydroxyacetone phosphate	169.998	C3H7O6P	Organic acids	Short-chain acids	Short-chain acids	HMDB0001473
+erythrose-4-phosphate	Erythrose 4-phosphate	200.0086	C4H9O7P	Carbohydrates	Monosaccharides	Monosaccharide phosphates	HMDB0001321
+F1P	Fructose 1-phosphate	260.0297	C6H13O9P	Carbohydrates	Monosaccharides	Monosaccharide phosphates	HMDB0001076
+hexoses (HILIC neg)	-						
+fumarate	Fumaric acid	116.011	C4H4O4	Organic acids	TCA acids	TCA acids	HMDB0000131
+glucuronate	Glucuronic acid	194.0427	C6H10O7	Carbohydrates	Monosaccharides	Sugar acids	HMDB0000127
+glutathione oxidized	Glutathione	307.0838	C10H17N3O6S	Organic acids	Amino acids and peptides	Tripeptides	
+glutathione reduced	Glutathione	307.0838	C10H17N3O6S	Organic acids	Amino acids and peptides	Tripeptides	HMDB0000125
+GMP	GMP	363.058	C10H14N5O8P	Nucleic acids	Purines	Purine rNMP	HMDB0001397
+guanosine	Guanosine	283.0917	C10H13N5O5	Nucleic acids	Purines	Purine ribonucleosides	HMDB0000133
+hippurate	Hippuric acid	179.0582	C9H9NO3	Polyketides	Phenolic acids	Phenolic acids	HMDB0000714
+hypoxanthine	Hypoxanthine	136.0385	C5H4N4O	Nucleic acids	Purines	Hypoxanthines	HMDB0000157
+inosine	Inosine	268.0808	C10H12N4O5	Nucleic acids	Purines	Purine ribonucleosides	HMDB0000195
+kynurenine	Kynurenine	208.0848	C10H12N2O3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000684
+lactate	Lactic acid	90.0317	C3H6O3	Organic acids	Short-chain acids	Short-chain acids	HMDB0000190
+lactose	Lactose	342.1162	C12H22O11	Carbohydrates	Disaccharides	Disaccharides	HMDB0000186
+malate	Malic acid	134.0215	C4H6O5	Organic acids	TCA acids	TCA acids	HMDB0000156
+NAD	NAD+	663.1091	C21H27N7O14P2	Nucleic acids	Nicotinamides	Nicotinamide dinucleotides	HMDB0000902
+NADP	NADP+	743.0755	C21H28N7O17P3	Nucleic acids	Nicotinamides	Nicotinamide dinucleotides	HMDB0000217
+oxalate	Oxalic acid	89.9953	C2H2O4	Fatty Acyls	Fatty acids	Dicarboxylic acids	HMDB0002329
+pantothenate	Pantothenic acid	219.1107	C9H17NO5	Organic acids	Amino acids and peptides	Amino acids	HMDB0000210
+PEP	Phosphoenolpyruvic acid	167.9824	C3H5O6P	Organic acids	Short-chain acids	Short-chain acids	HMDB0000263
+ribose-5-P	Ribose 5-phosphate	230.0192	C5H11O8P	Carbohydrates	Monosaccharides	Monosaccharide phosphates	HMDB0001548
+sorbitol	Sorbitol	182.079	C6H14O6	Carbohydrates	Monosaccharides	Sugar alcohols	HMDB0000247
+succinate	Succinic acid	118.0266	C4H6O4	Organic acids	TCA acids	TCA acids	HMDB0000254
+sucrose	Sucrose	342.1162	C12H22O11	Carbohydrates	Disaccharides	Disaccharides	HMDB0000258
+thymine	Thymine	126.0429	C5H6N2O2	Nucleic acids	Pyrimidines	Other pyrimidines	HMDB0000262
+UMP	UMP	324.0359	C9H13N2O9P	Nucleic acids	Pyrimidines	Pyrimidine rNMP	HMDB0000288
+UDP-galactose	UDP-galactose	566.055	C15H24N2O17P2	Nucleic acids	Pyrimidines	Pyrimidine rNDP	HMDB0000302
+uracil	Uracil	112.0273	C4H4N2O2	Nucleic acids	Pyrimidines	Other pyrimidines	HMDB0000300
+urate	Uric acid	168.0283	C5H4N4O3	Nucleic acids	Purines	Xanthines	HMDB0000289
+uridine	Uridine	244.0695	C9H12N2O6	Nucleic acids	Pyrimidines	Pyrimidine ribonucleosides	HMDB0000296
+xanthine	Xanthine	152.0334	C5H4N4O2	Nucleic acids	Purines	Xanthines	HMDB0000292
+taurocholate	Taurocholic acid	515.2917	C26H45NO7S	Sterol Lipids	Bile acids	C24 Bile acids	HMDB0000036
+glycodeoxycholate	Glycodeoxycholic acid	449.3141	C26H43NO5	Sterol Lipids	Bile acids	C24 Bile acids	HMDB0000631
+taurodeoxycholate	Taurodeoxycholic acid	499.2968	C26H45NO6S	Sterol Lipids	Bile acids	C24 Bile acids	HMDB0000896
+phosphocreatine	Phosphocreatine	211.0358	C4H10N3O5P	Organic acids	Amino acids and peptides	Amino acids	HMDB0001511
+3-methyladipate	3-Methyladipic acid	160.0736	C7H12O4	Fatty Acyls	Fatty acids	Dicarboxylic acids	HMDB0000555
+6-phosphogluconate	6-Phosphogluconic acid	276.0246	C6H13O10P	Carbohydrates	Monosaccharides	Monosaccharide phosphates	HMDB0001316
+alpha-hydroxybutyrate	2-Hydroxybutyric acid	104.0473	C4H8O3	Fatty Acyls	Fatty acids	Hydroxy FA	HMDB0000008
+2-hydroxyglutarate	2-Hydroxyglutaric acid	148.0372	C5H8O5	Fatty Acyls	Fatty acids	Dicarboxylic acids	HMDB0059655
+inositol	Inositol	180.0634	C6H12O6	Organic oxygen compounds	Alcohols and polyols	Inositols	HMDB0000211
+malondialdehyde	Malondialdehyde	72.0211	C3H4O2	Organic oxygen compounds	Carbonyl compounds	Other carbonyl compounds	HMDB0006112
+glycine	Glycine	75.032	C2H5NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000123
+alanine	Alanine	89.0477	C3H7NO2	Organic acids	Amino acids and peptides	Amino acids	
+serine	Serine	105.0426	C3H7NO3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000187
+threonine	Threonine	119.0582	C4H9NO3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000167
+methionine	Methionine	149.0511	C5H11NO2S	Organic acids	Amino acids and peptides	Amino acids	HMDB0000696
+aspartate	Aspartic acid	133.0375	C4H7NO4	Organic acids	Amino acids and peptides	Amino acids	HMDB0000191
+glutamate	Glutamic acid	147.0532	C5H9NO4	Organic acids	Amino acids and peptides	Amino acids	HMDB0000148
+asparagine	Asparagine	132.0535	C4H8N2O3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000168
+glutamine	Glutamine	146.0691	C5H10N2O3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000641
+histidine	Histidine	155.0695	C6H9N3O2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000177
+arginine	Arginine	174.1117	C6H14N4O2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000517
+lysine	Lysine	146.1055	C6H14N2O2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000182
+valine	Valine	117.079	C5H11NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000883
+leucine	Leucine	131.0946	C6H13NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000687
+isoleucine	Isoleucine	131.0946	C6H13NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000172
+phenylalanine	Phenylalanine	165.079	C9H11NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000159
+tyrosine	Tyrosine	181.0739	C9H11NO3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000158
+tryptophan	Tryptophan	204.0899	C11H12N2O2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000929
+proline	Proline	115.0633	C5H9NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000162
+hydroxyproline	Hydroxyproline	131.0582	C5H9NO3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000725
+ornithine	Ornithine	132.0899	C5H12N2O2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000214
+citrulline	Citrulline	175.0957	C6H13N3O3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000904
+taurine	Taurine	125.0147	C2H7NO3S	Organic acids	Sulfonic acids	Sulfonic acids	HMDB0000251
+5-HIAA	5-Hydroxyindoleacetic acid	191.0582	C10H9NO3	Alkaloids	Tryptophan alkaloids	Indoleacetic acids	HMDB0000763
+serotonin	Serotonin	176.095	C10H12N2O	Alkaloids	Tryptophan alkaloids	Tryptamines	HMDB0000259
+GABA	gamma-Aminobutyric acid	103.0633	C4H9NO2	Fatty Acyls	Fatty acids	Amino FA	HMDB0000112
+acetylglycine	N-Acetylglycine	117.0426	C4H7NO3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000532
+dimethylglycine	Dimethylglycine	103.0633	C4H9NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000092
+homocysteine	Homocysteine	135.0354	C4H9NO2S	Organic acids	Amino acids and peptides	Amino acids	HMDB0000742
+SDMA	Symmetric dimethylarginine	202.143	C8H18N4O2	Organic acids	Amino acids and peptides	Amino acids	HMDB0003334
+NMMA	Targinine	188.1273	C7H16N4O2	Organic acids	Amino acids and peptides	Amino acids	HMDB0029416
+allantoin	Allantoin	158.044	C4H6N4O3	Organoheterocyclic compounds	Ureas	Ureides	HMDB0000462
+anthranilic acid	2-Aminobenzoic acid	137.0477	C7H7NO2	Benzenoids	Benzenes	Aminobenzoic acids	HMDB0001123
+kynurenic acid	Kynurenic acid	189.0426	C10H7NO3	Alkaloids	Anthranilic acid alkaloids	Acridone alkaloids	HMDB0000715
+5-adenosylhomocysteine	-						
+carnosine	Carnosine	226.1066	C9H14N4O3	Organic acids	Amino acids and peptides	Dipeptides	HMDB0000033
+N-carbamoyl-beta-alanine	Ureidopropionic acid	132.0535	C4H8N2O3	Organic acids	Organic carbonic acids	Ureas	HMDB0000026
+thiamine	Thiamine	265.1123	C12H17N4OS	Nucleic acids	Pyrimidines	Thiamines	HMDB0000235
+niacinamide	Niacinamide	122.048	C6H6N2O	Alkaloids	Nicotinic acid alkaloids	Pyridine alkaloids	HMDB0001406
+betaine	Betaine	117.079	C5H11NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000043
+choline	Choline	104.1075	C5H14NO	Organic nitrogen compounds	Cholines	Cholines	HMDB0000097
+alpha-glycerophosphocholine	sn-Glycero-3-phosphocholine	257.1028	C8H20NO6P	Organic acids	Organic phosphoric acids	Organic phosphoric acids	HMDB0000086
+acetylcholine	Acetylcholine	146.1181	C7H16NO2	Organic nitrogen compounds	Cholines	Acyl cholines	HMDB0000895
+creatine	Creatine	131.0695	C4H9N3O2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000064
+creatinine	Creatinine	113.0589	C4H7N3O	Organoheterocyclic compounds	Azoles	Imidazolines	HMDB0000562
+thyroxine	Thyroxine	776.6867	C15H11I4NO4	Organic acids	Amino acids and peptides	Amino acids	HMDB0000248
+trimethylamine-N-oxide	Trimethylamine N-oxide	75.0684	C3H9NO	Organic nitrogen compounds	Amine oxides	Trisubstituted amine oxides	HMDB0000925
+hexoses (HILIC pos)	-						
+adenosine	Adenosine	267.0968	C10H13N5O4	Nucleic acids	Purines	Purine ribonucleosides	HMDB0000050
+thymidine	Thymidine	242.0903	C10H14N2O5	Nucleic acids	Pyrimidines	Pyrimidine deoxyribonucleosides	HMDB0000273
+xanthosine	Xanthosine	284.0757	C10H12N4O6	Nucleic acids	Purines	Purine ribonucleosides	HMDB0000299
+2-deoxyadenosine	Deoxyadenosine	251.1018	C10H13N5O3	Nucleic acids	Purines	Purine deoxyribonucleosides	HMDB0000101
+2-deoxycytidine	Deoxycytidine	227.0906	C9H13N3O4	Nucleic acids	Pyrimidines	Pyrimidine deoxyribonucleosides	HMDB0000014
+cAMP	"3',5' cyclic AMP"	329.0525	C10H12N5O6P	Nucleic acids	Purines	Purine rNMP	HMDB0000058
+cotinine	Cotinine	176.095	C10H12N2O	Alkaloids	Nicotinic acid alkaloids	Pyridine alkaloids	HMDB0001046
+pipecolic acid	Pipecolic acid	129.079	C6H11NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000070
+pyroglutamic acid	Pyroglutamic acid	129.0426	C5H7NO3	Organic acids	Amino acids and peptides	Amino acids	HMDB0000267
+1-methylnicotinamide	1-Methyl nicotinamide	137.0715	C7H9N2O	Alkaloids	Nicotinic acid alkaloids	Pyridine alkaloids	HMDB0000699
+butyrobetaine	3-Dehydroxycarnitine	145.1103	C7H15NO2	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0001161
+putrescine	Putrescine	88.1	C4H12N2	Fatty Acyls	Fatty amines	Monoalkylamines	HMDB0001414
+methionine sulfoxide	Methionine sulfoxide	165.046	C5H11NO3S	Organic acids	Amino acids and peptides	Amino acids	HMDB0002005
+carnitine	Carnitine	161.1052	C7H15NO3	Organic nitrogen compounds	Carnitines	Carnitines	HMDB0000062
+acetylcarnitine	CAR 2:0	203.1158	C9H17NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0000201
+propionylcarnitine	CAR 3:0	217.1314	C10H19NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0000824
+malonylcarnitine	CAR DC3:0	247.1056	C10H17NO6	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0002095
+butyrylcarnitine	CAR 4:0	231.1471	C11H21NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0002013
+valerylcarnitine	CAR 5:0	245.1627	C12H23NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0013128
+hexanoylcarnitine	CAR 6:0	259.1784	C13H25NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0000756
+heptanoylcarnitine	CAR 7:0	273.194	C14H27NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0013238
+lauroylcarnitine	CAR 12:0	343.2723	C19H37NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0002250
+myristoylcarnitine	CAR 14:0	371.3036	C21H41NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0005066
+palmitoylcarnitine	CAR 16:0	399.3349	C23H45NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0000222
+stearoylcarnitine	CAR 18:0	427.3662	C25H49NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0000848
+oleylcarnitine	CAR 18:1	425.3505	C25H47NO4	Fatty Acyls	Fatty esters	Acyl carnitines	
+arachidonyl_carnitine	CAR 20:4	504.4053	C31H54NO4	Fatty Acyls	Fatty esters	Acyl carnitines	HMDB0006455
+sarcosine	Sarcosine	89.0477	C3H7NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000271
+beta-alanine	beta-Alanine	89.0477	C3H7NO2	Organic acids	Amino acids and peptides	Amino acids	HMDB0000056
+anserine	Anserine	240.1222	C10H16N4O3	Organic acids	Amino acids and peptides	Dipeptides	HMDB0000194
+C14:0 LPC	LPC 14:0	467.3012	C22H46NO7P	Glycerophospholipids	Glycerophosphocholines	LPC	
+C16:1 LPC	LPC 16:1	493.3168	C24H48NO7P	Glycerophospholipids	Glycerophosphocholines	LPC	
+C16:0 LPC	LPC 16:0	495.3325	C24H50NO7P	Glycerophospholipids	Glycerophosphocholines	LPC	
+C18:2 LPC	LPC 18:2	519.3325	C26H50NO7P	Glycerophospholipids	Glycerophosphocholines	LPC	
+C18:1 LPC	LPC 18:1	521.3481	C26H52NO7P	Glycerophospholipids	Glycerophosphocholines	LPC	
+C18:0 LPC	LPC 18:0	523.3638	C26H54NO7P	Glycerophospholipids	Glycerophosphocholines	LPC	
+C20:4 LPC	LPC 20:4	543.3325	C28H50NO7P	Glycerophospholipids	Glycerophosphocholines	LPC	
+C20:3 LPC	LPC 20:3	545.3481	C28H52NO7P	Glycerophospholipids	Glycerophosphocholines	LPC	
+C22:6 LPC	LPC 22:6	567.3325	C30H50NO7P	Glycerophospholipids	Glycerophosphocholines	LPC	
+C16:0 LPE	LPE 16:0	453.2855	C21H44NO7P	Glycerophospholipids	Glycerophosphoethanolamines	LPE	
+C18:1 LPE	LPE 18:1	479.3012	C23H46NO7P	Glycerophospholipids	Glycerophosphoethanolamines	LPE	
+C18:0 LPE	LPE 18:0	481.3168	C23H48NO7P	Glycerophospholipids	Glycerophosphoethanolamines	LPE	
+C20:4 LPE	LPE 20:4	501.2855	C25H44NO7P	Glycerophospholipids	Glycerophosphoethanolamines	LPE	
+C22:6 LPE	LPE 22:6	525.2855	C27H44NO7P	Glycerophospholipids	Glycerophosphoethanolamines	LPE	
+C32:2 PC	PC 32:2	729.5309	C40H76NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C32:1 PC	PC 32:1	731.5465	C40H78NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C32:0 PC	PC 32:0	733.5622	C40H80NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C34:4 PC	PC 34:4	753.5309	C42H76NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C34:3 PC	PC 34:3	755.5465	C42H78NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C34:2 PC	PC 34:2	757.5622	C42H80NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C34:1 PC	PC 34:1	759.5778	C42H82NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C36:4 PC-A	PC 36:4	781.5622	C44H80NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C36:4 PC-B	PC 36:4	781.5622	C44H80NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C36:3 PC	PC 36:3	783.5778	C44H82NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C36:2 PC	PC 36:2	785.5935	C44H84NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C36:1 PC	PC 36:1	787.6091	C44H86NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C38:6 PC	PC 38:6	805.5622	C46H80NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C38:5 PC	PC 38:5	807.5778	C46H82NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C38:4 PC	PC 38:4	809.5935	C46H84NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C38:2 PC	PC 38:2	813.6248	C46H88NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C40:6 PC	PC 40:6	833.5935	C48H84NO8P	Glycerophospholipids	Glycerophosphocholines	PC	
+C14:0 SM	SM 18:1;O2/14:0	674.5363	C37H75N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C16:1 SM	SM 18:1;O2/16:1	700.5519	C39H77N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C16:0 SM	SM 18:1;O2/16:0	702.5676	C39H79N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C18:2 SM	SM 18:1;O2/18:2	726.5676	C41H79N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C18:1 SM	SM 18:1;O2/18:1	728.5832	C41H81N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C18:0 SM	SM 18:1;O2/18:0	730.5989	C41H83N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C22:1 SM	SM 18:1;O2/22:1	784.6458	C45H89N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C22:0 SM	SM 18:1;O2/22:0	786.6615	C45H91N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C24:1 SM	SM 18:1;O2/24:1	812.6771	C47H93N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C24:0 SM	SM 18:1;O2/24:0	814.6928	C47H95N2O6P	Sphingolipids	Phosphosphingolipids	SM	
+C34:2 DAG	DG 34:2	592.5067	C37H68O5	Glycerolipids	Diradylglycerols	DG	
+C34:1 DAG	DG 34:1	594.5223	C37H70O5	Glycerolipids	Diradylglycerols	DG	
+C36:2 DAG	DG 36:2	620.538	C39H72O5	Glycerolipids	Diradylglycerols	DG	
+C36:1 DAG	DG 36:1	622.5536	C39H74O5	Glycerolipids	Diradylglycerols	DG	
+C14:0 CE	CE 14:0	596.5532	C41H72O2	Sterol Lipids	Sterol esters	Chol. esters	
+C16:1 CE	CE 16:1	622.5689	C43H74O2	Sterol Lipids	Sterol esters	Chol. esters	
+C16:0 CE	CE 16:0	624.5845	C43H76O2	Sterol Lipids	Sterol esters	Chol. esters	
+C18:3 CE	CE 18:3	646.5689	C45H74O2	Sterol Lipids	Sterol esters	Chol. esters	
+C18:2 CE	CE 18:2	648.5845	C45H76O2	Sterol Lipids	Sterol esters	Chol. esters	
+C18:1 CE	CE 18:1	650.6002	C45H78O2	Sterol Lipids	Sterol esters	Chol. esters	
+C18:0 CE	CE 18:0	652.6158	C45H80O2	Sterol Lipids	Sterol esters	Chol. esters	
+C20:5 CE	CE 20:5	670.5689	C47H74O2	Sterol Lipids	Sterol esters	Chol. esters	
+C20:4 CE	CE 20:4	672.5845	C47H76O2	Sterol Lipids	Sterol esters	Chol. esters	
+C20:3 CE	CE 20:3	674.6002	C47H78O2	Sterol Lipids	Sterol esters	Chol. esters	
+C22:6 CE	CE 22:6	696.5845	C49H76O2	Sterol Lipids	Sterol esters	Chol. esters	
+C46:2 TAG	TG 46:2	774.6737	C49H90O6	Glycerolipids	Triradylglycerols	TG	
+C46:1 TAG	TG 46:1	776.6894	C49H92O6	Glycerolipids	Triradylglycerols	TG	
+C46:0 TAG	TG 46:0	778.705	C49H94O6	Glycerolipids	Triradylglycerols	TG	
+C48:3 TAG	TG 48:3	800.6894	C51H92O6	Glycerolipids	Triradylglycerols	TG	
+C48:2 TAG	TG 48:2	802.705	C51H94O6	Glycerolipids	Triradylglycerols	TG	
+C48:1 TAG	TG 48:1	804.7207	C51H96O6	Glycerolipids	Triradylglycerols	TG	
+C48:0 TAG	TG 48:0	806.7363	C51H98O6	Glycerolipids	Triradylglycerols	TG	
+C50:3 TAG	TG 50:3	828.7207	C53H96O6	Glycerolipids	Triradylglycerols	TG	
+C50:2 TAG	TG 50:2	830.7363	C53H98O6	Glycerolipids	Triradylglycerols	TG	
+C50:1 TAG	TG 50:1	832.752	C53H100O6	Glycerolipids	Triradylglycerols	TG	
+C50:0 TAG	TG 50:0	834.7676	C53H102O6	Glycerolipids	Triradylglycerols	TG	
+C52:5 TAG	TG 52:5	852.7207	C55H96O6	Glycerolipids	Triradylglycerols	TG	
+C52:4 TAG	TG 52:4	854.7363	C55H98O6	Glycerolipids	Triradylglycerols	TG	
+C52:3 TAG	TG 52:3	856.752	C55H100O6	Glycerolipids	Triradylglycerols	TG	
+C52:2 TAG	TG 52:2	858.7676	C55H102O6	Glycerolipids	Triradylglycerols	TG	
+C52:1 TAG	TG 52:1	860.7833	C55H104O6	Glycerolipids	Triradylglycerols	TG	
+C54:7 TAG	TG 54:7	876.7207	C57H96O6	Glycerolipids	Triradylglycerols	TG	
+C54:6 TAG	TG 54:6	878.7363	C57H98O6	Glycerolipids	Triradylglycerols	TG	
+C54:5 TAG	TG 54:5	880.752	C57H100O6	Glycerolipids	Triradylglycerols	TG	
+C54:4 TAG	TG 54:4	882.7676	C57H102O6	Glycerolipids	Triradylglycerols	TG	
+C54:3 TAG	TG 54:3	884.7833	C57H104O6	Glycerolipids	Triradylglycerols	TG	
+C54:2 TAG	TG 54:2	886.7989	C57H106O6	Glycerolipids	Triradylglycerols	TG	
+C54:1 TAG	TG 54:1	888.8146	C57H108O6	Glycerolipids	Triradylglycerols	TG	
+C56:8 TAG	TG 56:8	902.7363	C59H98O6	Glycerolipids	Triradylglycerols	TG	
+C56:7 TAG	TG 56:7	904.752	C59H100O6	Glycerolipids	Triradylglycerols	TG	
+C56:6 TAG	TG 56:6	906.7676	C59H102O6	Glycerolipids	Triradylglycerols	TG	
+C56:5 TAG	TG 56:5	908.7833	C59H104O6	Glycerolipids	Triradylglycerols	TG	
+C56:4 TAG	TG 56:4	910.7989	C59H106O6	Glycerolipids	Triradylglycerols	TG	
+C56:3 TAG	TG 56:3	912.8146	C59H108O6	Glycerolipids	Triradylglycerols	TG	
+C56:2 TAG	TG 56:2	914.8302	C59H110O6	Glycerolipids	Triradylglycerols	TG	
+C58:8 TAG	TG 58:8	930.7676	C61H102O6	Glycerolipids	Triradylglycerols	TG	
+C58:7 TAG	TG 58:7	932.7833	C61H104O6	Glycerolipids	Triradylglycerols	TG	
+C58:6 TAG	TG 58:6	934.7989	C61H106O6	Glycerolipids	Triradylglycerols	TG	
