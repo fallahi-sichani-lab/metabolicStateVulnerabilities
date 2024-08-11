@@ -17,6 +17,9 @@ library(matrixStats)
 library(gridExtra)
 library(randomcoloR)
 library(fgsea)
+library(dplyr)
+library(tidyr)
+library(ggpubr)
 
 
 #functions required for pathway activity analysis
@@ -179,7 +182,7 @@ all_NA <- rowAlls(is.na(mean_expression_shuffle))
 mean_expression_shuffle <- mean_expression_shuffle[!all_NA,]
 
 
-#heatmap of permutated pathway activity scores
+#heatmap of pathway activity scores
 dat <- mean_expression_shuffle
 
 dat[is.na(dat)] <- 1
@@ -190,6 +193,7 @@ mybreaks <- c(
   seq(1.03, 1.8,length.out=33))
 
 color <- colorRampPalette(c("blue","white","red"))(67)
+
 
 p <- pheatmap(dat,cluster_cols = T,cluster_rows = T,color=color,breaks=mybreaks,vannotation_row = NA, annotation_colors = mat_colors)
 ggsave(file.path(outDir, "KEGGpathway_activity_heatmap_cultured_media.pdf"),p,width=10,height=19,units="in",device="pdf",useDingbats=FALSE)
@@ -280,11 +284,12 @@ for (p in names(pathways)) {
   #calculating IQR of data spread across each media type  for each pathway
   IQR_media_types<- apply(pathway_metabolic_TPM_statistics, 2, function(x) by(pathway_metabolic_TPM_statistics$mean_TPM, pathway_metabolic_TPM_statistics$Media, quantile))
   
-  IQR_media_types.df <- data.frame(Media = NA, Pathway = NA, IQR = NA)
+  IQR_media_types.df <- data.frame(Media = NA, Pathway = NA, IQR = NA, Median = NA)
   for (i in media_types) {
     IQR_media_types.df$Media <- i
     IQR_media_types.df$Pathway <-names(pathways[p])
     IQR_media_types.df$IQR <- IQR_media_types[["mean_TPM"]][[i]][["75%"]] - IQR_media_types[["mean_TPM"]][[i]][["25%"]]
+    IQR_media_types.df$Median <- IQR_media_types[["mean_TPM"]][[i]][["50%"]]
     
     IQR_media_types_final.df <- rbind(IQR_media_types_final.df,IQR_media_types.df)
   }
@@ -299,42 +304,255 @@ for (p in names(pathways)) {
   
 }
 
-
+plot_list <- list()
 #mean pathway TPM values across cancer cell lines and different metabolic pathways
-for (i in c("Ascorbate and aldarate metabolism","Thiamine metabolism","Oxidative phosphorylation")) {
+for (i in c("Glycolysis / Gluconeogenesis", "Citrate cycle (TCA cycle)","Oxidative phosphorylation")) {
   state.df <- mean_metabolic_TPM_media[mean_metabolic_TPM_media$Pathway == i, ]
   IQR.df <- IQR_media_types_final.df[IQR_media_types_final.df$Pathway == i,]
   
   merged.df <- merge(state.df, IQR.df, by = "Media")
   
-  #keeping same order of media types based on IQR descending order for ascorbate and aldarate metabolism
-  if (i == c("Ascorbate and aldarate metabolism")) {
-    merged.df <- merged.df[order(-merged.df$IQR),] #ordering IQR values
+  
+  #t-test of expression values for each media vs. all media (minus each media individually)
+  t_test_media.df <- data.frame("Media" = NULL, "p_val"=NULL)
+  for (m in unique(merged.df$Media)) {
+    df <- merged.df[merged.df$Media == m,]
+    df2 <- merged.df[!(merged.df$Media == m),]
+    df2$Media <- "All"
+    df_bind <- rbind(df,df2)
+    t_test_results <- t.test(mean_TPM ~ Media, data = df_bind)
     
-    ascorbate_order_cell_lines = merged.df$cell_line
-    ascorbate_order_media_types_unique = unique(merged.df$Media)
+    t_test_media <- data.frame("Media" = m, "p_val" = t_test_results[["p.value"]])
+    
+    t_test_media.df <- rbind(t_test_media.df, t_test_media)
+    
   }
   
-  merged.df <- merged.df[match(ascorbate_order_cell_lines, merged.df$cell_line), ]  
-  merged.df$Media <- factor(merged.df$Media, levels = ascorbate_order_media_types_unique)
+  #adding t test results to df
+  merged.df <- merge(merged.df, t_test_media.df, by.x = "Media", by.y = "Media")
   
+  #renaming media names to numbers
+  merged.df <- merged.df %>%
+    mutate(Media_num = case_when(Media == "RPMI + 20% FBS"  ~ "1", 
+                                 Media == "RPMI + 15% FBS"  ~ "2",
+                                 Media == "IMDM + 10% FBS"  ~ "3",
+                                 Media == "IMDM + 20% FBS + 4mM Glutamine + 1x Insulin-Transferrin-Selenium"  ~ "4",
+                                 Media == "F12 + 15% FBS + 2mM Glutamine" ~ "5",
+                                 Media == "EMEM + 10% FBS"  ~ "6",
+                                 Media == "L-15 + 10% FBS" ~ "7",
+                                 Media == "EMEM + 10% FBS + 2mM Glutamine + 100uM NEAA" ~ "8",
+                                 Media == "IMDM + 10% FBS + 2mM Glutamine" ~ "9",
+                                 Media == "MEM + 10% FBS" ~ "10",
+                                 Media == "DMEM + 10% FBS" ~ "11",
+                                 Media == "DMEM:F12 + 10% FBS" ~ "12",
+                                 Media == "F12 + 10% FBS" ~ "13",
+                                 Media == "RPMI + 10% FBS + 2mM Glutamine"  ~ "14",
+                                 Media ==  "RPMI + 10% FBS" ~ "15",
+                                 Media ==  "DMEM + 10% FBS + 2mM Glutamine" ~ "16",
+                                 Media ==  "RPMI + 5% FBS" ~ "17",
+                                 Media ==  "McCoy's 5A + 10% FBS"  ~ "18",
+                                 Media ==  "RPMI + 10% FBS + 2mM Glutamine + 25mM HEPES + 25mM Sodium bicarbonate" ~ "19",
+                                 Media ==  "DMEM:F12 + 5% FBS + 2mM Glutamine + 5ug/ml Insulin + 10ug/ml Transferrin + 30nM Selenium + 10nM Hydrocortisone + 10nM Beta estradiol" ~ "20",
+                                 Media ==  "OPAC:Ad+++ (1:1)"  ~ "21"))
   
-  g <- ggplot(merged.df,aes(x=Media,y=mean_TPM)) +
+  merged.df$Media_num <- as.numeric(merged.df$Media_num)
+  merged.df <- merged.df[order(merged.df$Media_num, decreasing = FALSE),]
+  merged.df$Media_num <- as.character(merged.df$Media_num)
+  merged.df$Media_num <- factor(merged.df$Media_num, levels = unique(merged.df$Media_num))
+  
+  if (i == c("Oxidative phosphorylation")) {
+    
+    plot_list[[i]] <- ggplot(merged.df,aes(x=Media_num,y=mean_TPM)) +
+      geom_boxplot(fill = "lightblue", size=0.4,show.legend = F, outlier.size = 1) + labs(y=NULL,x=NULL) + 
+      theme_classic() + xlab("Media") +
+      theme(legend.position="none",
+            axis.text.x=element_text(colour="black", size = 12,angle=45,hjust=1,vjust=1),
+            axis.text.y=element_text(colour="black", size = 12),
+            axis.line=element_line(size=0.2,color="black"),
+            axis.ticks = element_line(colour = "black",linewidth=0.2),
+            panel.border = element_blank(), panel.background = element_blank(),
+            axis.ticks.length= unit(.5, "mm"))+ ylab("mean metabolic pathway TPM") + ylim(-1,round(max(state.df$mean_TPM)+10)) + 
+      labs(title = i) +
+      annotate("text", x=1:length(unique(merged.df$Media_num)), y=-1, label= paste(signif(unique(merged.df$p_val), 2)), angle='30', color = "red")
+    
+  } else
+    
+  plot_list[[i]] <- ggplot(merged.df,aes(x=Media_num,y=mean_TPM)) +
     geom_boxplot(fill = "lightblue", size=0.4,show.legend = F, outlier.size = 1) + labs(y=NULL,x=NULL) + 
     theme_classic() + 
     theme(legend.position="none",
-          axis.text.x=element_text(colour="black", size = 12,angle=45,hjust=1,vjust=1),
+          axis.text.x= element_blank(),
           axis.text.y=element_text(colour="black", size = 12),
           axis.line=element_line(size=0.2,color="black"),
           axis.ticks = element_line(colour = "black",linewidth=0.2),
           panel.border = element_blank(), panel.background = element_blank(),
-          axis.ticks.length= unit(.5, "mm"))+ ylab("mean metabolic pathway TPM") + ylim(-1,round(max(state.df$mean_TPM)+10)) + labs(title = i) + 
-    annotate("text", x=1:length(unique(state.df$Media)), y=-1, label= paste(round(unique(merged.df$IQR), 2)), angle='30', color = "red") +
-    ylim(-2,round(max(state.df$mean_TPM), 10) + 10)
-  
-  ggsave(file.path(outDir, (sprintf('%s_boxplot_state_scores_across_media.pdf',i))), plot = g,device = 'pdf',width =18, height = 18,dpi=300)
+          axis.ticks.length= unit(.5, "mm"))+ ylab("mean metabolic pathway TPM") + 
+    ylim(-1,round(max(state.df$mean_TPM)+10)) + labs(title = i) +
+    annotate("text", x=1:length(unique(merged.df$Media_num)), y=-1, label= paste(signif(unique(merged.df$p_val), 2)), angle='30', color = "red")
 }
 
+p <- ggarrange(plotlist = plot_list, nrow = 3)
+ggsave(file.path(outDir, 'boxplot_metabolic_scores_across_media.pdf'), plot = p,device = 'pdf',width =10, height = 15,dpi=300)
+
+
+#bar plot looking at the % of cell lines out of total 995 that are grown in each media
+media_percent <- merged.df %>%
+  mutate(total_cells = n()) %>%
+  group_by(Media_num) %>%
+  mutate(cells_per_media = n()) %>%
+  mutate(percent_cells = 100*(cells_per_media/total_cells)) %>%
+  select(Media_num,total_cells,cells_per_media,percent_cells) %>%
+  unique()
+
+p<-ggplot(media_percent, aes(y=percent_cells, x=Media_num)) +
+  geom_bar(stat="identity")+theme_classic() +  theme(legend.position="none",
+                                                     axis.text.x=element_text(colour="black", size = 12),
+                                                     axis.text.y=element_text(colour="black", size = 12),
+                                                     axis.line=element_line(size=0.2,color="black"),
+                                                     axis.ticks = element_line(colour = "black",size=0.2),
+                                                     panel.border = element_blank(), panel.background = element_blank(),
+                                                     axis.ticks.length= unit(.5, "mm"), axis.title = element_text(size = 15, colour = "black")) + 
+  xlab("Media") + ylab('% cell lines') + ylim(0,50) + scale_y_continuous(expand = c(0, 0), limits = c(0, 50)) +
+  ggtitle("Percent of cell lines grown in each medium (n = 995 cell lines)") + geom_text(aes(label=round(percent_cells, digits = 1)), position=position_dodge(width=0.9), vjust= -0.08)
+
+ggsave(file.path(outDir, 'percent_cell_lines_grown_each_media.pdf'), plot = p,device = 'pdf',width =9, height = 5,dpi=300)
+
+
+#expression of complexes found in mitochondria across different media compositions
+#importing all Complex genes
+ComplexI_genes <- read.delim("/Volumes/FallahiLab/Maize-Data/Data/Cara/CellxGene single cell data/Harmonized single-cell landscape of glioblastoma/GSEA files/RESPIRATORY_CHAIN_COMPLEX_I.v2023.1.Hs.tsv",sep="\t")
+ComplexI_genes <- unlist(strsplit(ComplexI_genes[17,2], ","))
+
+ComplexII_genes <- c("SDHA", "SDHB", "SDHC", "SDHD") #GO:0045273
+
+ComplexIII_genes <- read.delim("/Volumes/FallahiLab/Maize-Data/Data/Cara/CellxGene single cell data/Harmonized single-cell landscape of glioblastoma/GSEA files/GOCC_MITOCHONDRIAL_RESPIRATORY_CHAIN_COMPLEX_III.v2023.1.Hs.tsv",sep="\t")
+ComplexIII_genes <- unlist(strsplit(ComplexIII_genes[17,2], ","))
+
+ComplexIV_genes <- read.delim("/Volumes/FallahiLab/Maize-Data/Data/Cara/CellxGene single cell data/Harmonized single-cell landscape of glioblastoma/GSEA files/GOCC_RESPIRATORY_CHAIN_COMPLEX_IV.v2023.1.Hs.tsv",sep="\t")
+ComplexIV_genes <- unlist(strsplit(ComplexIV_genes[17,2], ","))
+
+ATPsynthase_genes <- read.delim("/Volumes/FallahiLab/Maize-Data/Data/Cara/CellxGene single cell data/Harmonized single-cell landscape of glioblastoma/GSEA files/GOCC_PROTON_TRANSPORTING_ATP_SYNTHASE_COMPLEX.v2023.1.Hs.tsv",sep="\t")
+ATPsynthase_genes <- unlist(strsplit(ATPsynthase_genes[17,2], ","))
+
+
+#compiling gene set list
+gene_set_list <- list(ComplexI = ComplexI_genes, ComplexII = ComplexII_genes,
+                      ComplexIII = ComplexIII_genes,
+                      ComplexIV = ComplexIV_genes,ATPsynthase= ATPsynthase_genes)
+
+
+
+mean_metabolic_TPM_media_complex <- data.frame()
+for (p in names(gene_set_list)) {
+  genes <- gene_set_list[[p]]
+  
+ 
+  complex_TPM <- TPM_non_normalized[,colnames(TPM_non_normalized) %in% genes]
+  complex_TPM_mean <- rowMeans(complex_TPM) #taking mean TPM across all pathway genes
+  complex_TPM_statistics<- as.data.frame(complex_TPM_mean)
+  colnames(complex_TPM_statistics) <- c("mean_TPM")
+  complex_TPM_statistics$Media <- medium_metadata_unfiltered$FormulationID
+  
+  
+  #assembling final metabolic score data frame
+  complex_TPM_statistics$Complex <- names(gene_set_list[p])
+  complex_TPM_statistics$cell_line <- rownames(complex_TPM)
+  rownames(complex_TPM_statistics) <- NULL
+  
+  mean_metabolic_TPM_media_complex <- rbind(mean_metabolic_TPM_media_complex,complex_TPM_statistics)
+  
+}
+
+plot_list <- list()
+#mean pathway TPM values across cancer cell lines and different metabolic pathways
+for (i in names(gene_set_list)) {
+  state.df <- mean_metabolic_TPM_media_complex[mean_metabolic_TPM_media_complex$Complex == i, ]
+  state.df <- state.df %>%
+    group_by(Media) %>%
+    mutate(Median = median(mean_TPM))
+
+  
+  #t-test of expression values for each media vs. all media (minus each media individually)
+  t_test_media.df <- data.frame("Media" = NULL, "p_val"=NULL)
+  for (m in unique(state.df$Media)) {
+    df <- state.df[state.df$Media == m,]
+    df2 <- state.df[!(state.df$Media == m),]
+    df2$Media <- "All"
+    df_bind <- rbind(df,df2)
+    t_test_results <- t.test(mean_TPM ~ Media, data = df_bind)
+    
+    t_test_media <- data.frame("Media" = m, "p_val" = t_test_results[["p.value"]])
+    
+    t_test_media.df <- rbind(t_test_media.df, t_test_media)
+    
+  }
+  
+  #adding t test results to df
+  state.df <- merge(state.df, t_test_media.df, by.x = "Media", by.y = "Media")
+  
+  #renaming media names to numbers
+  state.df <- state.df %>%
+    mutate(Media_num = case_when(Media == "RPMI + 20% FBS"  ~ "1", 
+                                 Media == "RPMI + 15% FBS"  ~ "2",
+                                 Media == "IMDM + 10% FBS"  ~ "3",
+                                 Media == "IMDM + 20% FBS + 4mM Glutamine + 1x Insulin-Transferrin-Selenium"  ~ "4",
+                                 Media == "F12 + 15% FBS + 2mM Glutamine" ~ "5",
+                                 Media == "EMEM + 10% FBS"  ~ "6",
+                                 Media == "L-15 + 10% FBS" ~ "7",
+                                 Media == "EMEM + 10% FBS + 2mM Glutamine + 100uM NEAA" ~ "8",
+                                 Media == "IMDM + 10% FBS + 2mM Glutamine" ~ "9",
+                                 Media == "MEM + 10% FBS" ~ "10",
+                                 Media == "DMEM + 10% FBS" ~ "11",
+                                 Media == "DMEM:F12 + 10% FBS" ~ "12",
+                                 Media == "F12 + 10% FBS" ~ "13",
+                                 Media == "RPMI + 10% FBS + 2mM Glutamine"  ~ "14",
+                                 Media ==  "RPMI + 10% FBS" ~ "15",
+                                 Media ==  "DMEM + 10% FBS + 2mM Glutamine" ~ "16",
+                                 Media ==  "RPMI + 5% FBS" ~ "17",
+                                 Media ==  "McCoy's 5A + 10% FBS"  ~ "18",
+                                 Media ==  "RPMI + 10% FBS + 2mM Glutamine + 25mM HEPES + 25mM Sodium bicarbonate" ~ "19",
+                                 Media ==  "DMEM:F12 + 5% FBS + 2mM Glutamine + 5ug/ml Insulin + 10ug/ml Transferrin + 30nM Selenium + 10nM Hydrocortisone + 10nM Beta estradiol" ~ "20",
+                                 Media ==  "OPAC:Ad+++ (1:1)"  ~ "21",
+                                 Media == "All" ~ "All_media"))
+  
+  state.df$Media_num <- as.numeric(state.df$Media_num)
+  state.df <- state.df[order(state.df$Media_num, decreasing = FALSE),]
+  state.df$Media_num <- as.character(state.df$Media_num)
+  state.df$Media_num <- factor(state.df$Media_num, levels = unique(state.df$Media_num))
+  
+  if (i == "ATPsynthase") {
+    
+    plot_list[[i]] <- ggplot(state.df,aes(x=Media_num,y=mean_TPM)) +
+      geom_boxplot(fill = "lightblue", size=0.4,show.legend = F, outlier.size = 1) + labs(y=NULL,x=NULL) + 
+      theme_classic() + xlab("Media") +
+      theme(legend.position="none",
+            axis.text.x=element_text(colour="black", size = 12,angle=45,hjust=1,vjust=1),
+            axis.text.y=element_text(colour="black", size = 12),
+            axis.line=element_line(size=0.2,color="black"),
+            axis.ticks = element_line(colour = "black",linewidth=0.2),
+            panel.border = element_blank(), panel.background = element_blank(),
+            axis.ticks.length= unit(.5, "mm"))+ ylab("mean metabolic pathway TPM") + ylim(-1,round(max(state.df$mean_TPM)+10)) + 
+      labs(title = i) +
+      annotate("text", x=1:length(unique(state.df$Media_num)), y=-1, label= paste(signif(unique(state.df$p_val), 2)), angle='30', color = "red")
+    
+  } else
+    
+    plot_list[[i]] <- ggplot(state.df,aes(x=Media_num,y=mean_TPM)) +
+    geom_boxplot(fill = "lightblue", size=0.4,show.legend = F, outlier.size = 1) + labs(y=NULL,x=NULL) + 
+    theme_classic() + 
+    theme(legend.position="none",
+          axis.text.x= element_blank(),
+          axis.text.y=element_text(colour="black", size = 12),
+          axis.line=element_line(size=0.2,color="black"),
+          axis.ticks = element_line(colour = "black",linewidth=0.2),
+          panel.border = element_blank(), panel.background = element_blank(),
+          axis.ticks.length= unit(.5, "mm"))+ ylab("mean metabolic pathway TPM") + 
+    ylim(-1,round(max(state.df$mean_TPM)+10)) + labs(title = i) +
+    annotate("text", x=1:length(unique(state.df$Media_num)), y=-1, label= paste(signif(unique(state.df$p_val), 2)), angle='30', color = "red")
+}
+
+p <- ggarrange(plotlist = plot_list, nrow = 5)
+ggsave(file.path(outDir, 'boxplot_ETC_scores_across_media.pdf'), plot = p,device = 'pdf',width =10, height = 22,dpi=300)
 
 
 
